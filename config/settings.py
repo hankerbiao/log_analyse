@@ -42,11 +42,3 @@ class Settings:
     def __str__(self):
         """String representation of the current settings."""
         return f"Settings(config_file='{self.config_file}', config={self.config})"
-
-
-# Usage example
-if __name__ == "__main__":
-    settings = Settings()
-    print(f"Log save path: {settings.log_save_path}")
-    print(f"Clean log save path: {settings.clean_log_save_path}")
-    print(f"Log open coding: {settings.log_open_coding}")
