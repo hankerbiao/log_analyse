@@ -10,12 +10,14 @@ from src.utils import process_chunk
 
 SAVE_PATH = setting.clean_log_save_path
 CHUNK_SIZE = 100 * 1024 * 1024  # 100MB chunks
-if os.path.exists(SAVE_PATH):
-    shutil.rmtree(SAVE_PATH)
-os.makedirs(SAVE_PATH, exist_ok=True)
 
 
 def clean_logs(logs_save_path):
+    if os.path.exists(SAVE_PATH):
+        shutil.rmtree(SAVE_PATH)
+    os.makedirs(SAVE_PATH, exist_ok=True)
+
+    logging.info(f"Start cleaning logs in {logs_save_path}")
     """清理日志文件的优化版本，使用多进程处理文件并捕获异常。"""
     file_paths = [
         os.path.join(logs_save_path, file_name)
