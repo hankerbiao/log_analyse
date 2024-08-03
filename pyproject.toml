@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "log-analyse"
+version = "0.1.0"
+description = ""
+authors = ["面向栗子 <3300434146@qq.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pyyaml = "^6.0.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
