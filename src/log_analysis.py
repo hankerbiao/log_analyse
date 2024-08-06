@@ -3,10 +3,12 @@ from typing import Dict, List
 import logging
 import os
 import numpy as np
-
+import datetime
 from src.utils import parse_log_entry, calculate_time_differences, save_to_csv, save_analysis_results
+
 output = 'output'
 os.makedirs(output, exist_ok=True)
+now_datetime = datetime.datetime.now()
 
 
 def process_logs(logs_path: str) -> Dict[str, Dict[str, str]]:
@@ -26,7 +28,7 @@ def process_logs(logs_path: str) -> Dict[str, Dict[str, str]]:
 def analyze_throughput(data: Dict[str, Dict[str, str]], *, to_csv=False, to_excel=True) -> List[List]:
     if to_csv:
         logging.info(f"Start saving data to CSV: {to_csv}")
-        save_to_csv(data, os.path.join(output,'results.csv'))
+        save_to_csv(data, os.path.join(output, f'results_{now_datetime}.csv'))
     error_nums = 0
     time_diff_lists = defaultdict(list)
     for value in data.values():
@@ -60,5 +62,5 @@ def analyze_throughput(data: Dict[str, Dict[str, str]], *, to_csv=False, to_exce
     print("error line num:", error_nums)
     if to_excel:
         logging.info("Start saving data to Excel")
-        save_analysis_results(results, os.path.join(output,'results.xlsx'))
+        save_analysis_results(results, os.path.join(output, f'results_{now_datetime}.xlsx'))
     return results
