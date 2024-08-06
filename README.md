@@ -1,4 +1,4 @@
-# 🚀 超级日志处理器 (Super Log Processor) 🚀
+# 🚀 UAPI大日志处理器 (Super Log Processor) 🚀
 
 UAPI 大日志分析处理工具
 简单配置，一键执行
@@ -31,7 +31,25 @@ UAPI 大日志分析处理工具
    ```
    python main.py
    ```
+```python
+# 示例代码
+from config import setting
+from src.log_analysis import process_logs, analyze_throughput
+from src.log_processor import clean_logs
+from src.utils import setup_logging
 
+if __name__ == '__main__':
+   setup_logging()
+   # 1. 清理日志文件
+   clean_logs(setting.log_save_path)
+   # 2. 计算日志,默认将结果保存到 output/result.xlsx
+   # 需要保存每一笔数据，增加参数to_csv = True
+   # 如：analyze_throughput(process_logs(setting.clean_log_save_path), to_csv = True)
+   result = analyze_throughput(process_logs(setting.clean_log_save_path))
+   for i in result:
+      print(i)
+
+```
 ## 📁 项目结构
 
 ```
@@ -53,10 +71,9 @@ project_root/
 
 ## 🐛 遇到问题?
 
-如果你遇到任何问题或有任何疑问,请随时在 GitHub 上提出 issue。我们会尽快回复你! 💪
+如果你遇到任何问题或有任何疑问,请随时提出 issue。我会尽快回复你! 💪
 
 ---
 
-用 ❤️ 制作 by [pyhanker@gmail.com]
 
 祝你的日志处理之旅愉快! 🎈🎉
