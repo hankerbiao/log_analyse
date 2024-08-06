@@ -1,4 +1,4 @@
 log_save_path: ./data
 clean_log_save_path: "clean_log"
 log_open_coding: "utf8"
-re_compile: .*\|【(.*?)】,FunctionCode:(.*?),UniqueId:(.*?),CurTime:(.*?),
+re_compile: .*\|\[(.*?)\],FunctionCode:(.*?),UniqueId:(.*?),CurTime:(.*?),

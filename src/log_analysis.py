@@ -8,7 +8,7 @@ from src.utils import parse_log_entry, calculate_time_differences, save_to_csv, 
 
 output = 'output'
 os.makedirs(output, exist_ok=True)
-now_datetime = datetime.datetime.now()
+now_datetime = datetime.datetime.now().strftime("%Y_%m_%d_%H_%M_%S")
 
 
 def process_logs(logs_path: str) -> Dict[str, Dict[str, str]]:
