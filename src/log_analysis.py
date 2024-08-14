@@ -40,8 +40,6 @@ def analyze_throughput(data: Dict[str, Dict[str, str]], *, to_csv=False, to_exce
             error_nums += 1
             continue
         calculated = calculate_time_differences(times)
-        if calculated["total_time"] <= 0:
-            continue
         for k, v in calculated.items():
             time_diff_lists[k].append(v)
 
@@ -51,13 +49,13 @@ def analyze_throughput(data: Dict[str, Dict[str, str]], *, to_csv=False, to_exce
         n = len(values)
         results.append([
             metric,
-            f"{np.mean(values) / 1000:.2f}",
-            f"{values[-1] / 1000:.2f}",
-            f"{values[0] / 1000:.2f}",
-            f"{values[int(n * 0.90)] / 1000:.2f}",
-            f"{values[int(n * 0.95)] / 1000:.2f}",
-            f"{values[int(n * 0.99)] / 1000:.2f}",
-            n
+            f"{np.mean(values) / 1000:.2f}",  # 平均响应时间
+            f"{values[-1] / 1000:.2f}",  # 最大响应时间
+            f"{values[0] / 1000:.2f}",  # 最小响应时间
+            f"{values[int(n * 0.90)] / 1000:.2f}",  # 90%响应时间
+            f"{values[int(n * 0.95)] / 1000:.2f}",  # 95%响应时间
+            f"{values[int(n * 0.99)] / 1000:.2f}",  # 99%响应时间
+            n,  # 总请求数
         ])
     print("error line num:", error_nums)
     if to_excel:

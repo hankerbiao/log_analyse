@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "log-analyse"
-version = "0.1.0"
+version = "0.1.1"
 description = ""
 authors = ["面向栗子 <3300434146@qq.com>"]
 readme = "README.md"

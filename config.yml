@@ -1,4 +1,5 @@
-log_save_path: ./data
+log_save_path: C:\Users\Administrator\Desktop\ugw
 clean_log_save_path: "clean_log"
 log_open_coding: "utf8"
-re_compile: .*\|\[(.*?)\],FunctionCode:(.*?),UniqueId:(.*?),CurTime:(.*?),
+#re_compile: .*\|\[(.*?)\],FunctionCode:(.*?),UniqueId:(.*?),CurTime:(.*?),
+re_compile: .*\|(.*?),FunctionCode:(.*?),UniqueId:(.*?),CurTime:(.*?),
